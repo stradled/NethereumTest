@@ -29,7 +29,8 @@ namespace BasicTurorial
             Assert.True(unlockAccountResult);
 
             var transactionHash =
-                await web3.Eth.DeployContract.SendRequestAsync(abi, byteCode, senderAddress, multiplier);
+                await web3.Eth.DeployContract.SendRequestAsync(abi, byteCode, senderAddress, new HexBigInteger(250000),
+                    multiplier);
 
             var mineResult = await web3Geth.Miner.Start.SendRequestAsync(6);
             //var mineResult = await web3.Miner.Start.SendRequestAsync(6);
